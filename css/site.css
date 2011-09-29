@@ -20,7 +20,7 @@ a:hover {
 }
 
 h1 {
-  margin:30px 0 10px 0;
+  margin:10px 0 10px 0;
   font-size:30px;
   padding:5px 5px 5px 0px;
   background:url('biohazard.png') no-repeat top right;
@@ -66,4 +66,12 @@ div.footer ul {
   font-size:20px;
   color:#ebfdff;
   font-style:italic;
+}
+
+.wax-tooltip a {
+  font-weight:bold;
+}
+
+sup {
+  font-size:10px;
 }
