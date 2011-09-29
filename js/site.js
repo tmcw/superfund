@@ -1,7 +1,7 @@
 var map;
 var mm = com.modestmaps;
 $.domReady(function() {
-    wax.tilejson('http://tiles.mapbox.com/tmcw/api/Tileset/superfund_1af9ac', function(tj) {
+    wax.tilejson('http://a.tiles.mapbox.com/tmcw/1.0.0/tmcw.superfund_1af9ac,mapbox.world-glass/layer.json', function(tj) {
         map = new mm.Map('map',
             new wax.mm.connector(tj),
             null, [
