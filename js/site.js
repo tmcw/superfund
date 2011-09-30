@@ -10,7 +10,7 @@ $.domReady(function() {
             $('.your').html('<em>your superfund</em> <h2>' + f.FAC_NAME + ', <small>/' + f.LOC_CITY + ', ' + f.LOC_STATE + '</small></h3>');
             easey.slow(map, {
                 location: new mm.Location(l.lat, l.lon),
-                zoom: 9,
+                zoom: 5,
                 time: 5000
             });
         });
