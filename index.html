@@ -30,11 +30,14 @@
       src='js/wax.mm.js'
       type='text/javascript'></script>
     <script
+      src='js/sphericalmercator.js'
+      type='text/javascript'></script>
+    <script
+      src='js/utfgridquery.js'
+      type='text/javascript'></script>
+    <script
       src='js/site.js'
       type='text/javascript'></script>
-
-    <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,700,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,700,700italic' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class='container'>
@@ -42,9 +45,8 @@
     <p>These are some of the most polluted areas in America.
     <a href='http://ds.io/nPl1Yg'>CERCLA</a><sup><a href='http://en.wikipedia.org/wiki/Superfund'>W</a></sup>
     was enacted in 1980, in response to the <a href='' id='lovecanal'>Love Canal disaster</a><sup><a href='http://en.wikipedia.org/wiki/Love_Canal'>W</a></sup>, to clean up severely polluted sites.</p>
-    <!-- <div class='your'>
-      <h2>Washington Navy Yard <small>your local superfund</small></h2>
-    </div> -->
+    <div class='your'>
+    </div>
     <div id='map'></div>
     <p>There are currently <em>1,280</em> sites on the list, and since
     1980, <em>347</em> have
@@ -57,6 +59,10 @@
       <div class='footer'>
         <ul>
           <li>
+          <a href='http://macwright.org/2011/10/30/voronoi-polygons.html'>Read more about this map in its blog post</a>. Maps rendered with <a href='http://mapbox.com/tilemill'>TileMill</a> and served by
+            <a href='http://mapbox.com/hosting'>MapBox Hosting</a>
+          </li>
+          <li>
             Superfund sites downloaded from the excellent but difficult to track down
             <a href='http://www.epa.gov/enviro/geo_data.html'>EPA Geospatial Data Access Project</a>
           </li>
@@ -64,8 +70,7 @@
           See also: <a href='http://www.epa.gov/superfund/'>EPA's Superfund site</a>, the <a href='http://topics.nytimes.com/topics/reference/timestopics/subjects/s/superfund/index.html'>NYT Superfund topic</a>, and <a href='http://www.epa.gov/superfund/sites/'>the official map</a>
           </li>
           <li>
-            Maps rendered with <a href='http://mapbox.com/tilemill'>TileMill</a> and served by
-            <a href='http://mapbox.com/hosting'>MapBox Hosting</a>
+            <a rel='author' href='http://macwright.org/'>&copy; Tom MacWright</a>, content public domain, maps CC-BY-SA, code BSD
           </li>
         </ul>
       </div>
