@@ -11,7 +11,7 @@ $.domReady(function() {
             easey.slow(map, {
                 location: new mm.Location(l.lat, l.lon),
                 zoom: 5,
-                time: 5000
+                time: 1000
             });
         });
     }
