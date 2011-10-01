@@ -13,10 +13,6 @@ a:hover {
   text-decoration:underline;
 }
 
-.container {
-  margin:0 auto;
-}
-
 .left {
   width:400px;
 }
@@ -62,7 +58,7 @@ div.footer ul {
 
 .your {
   background:#444;
-  color:#bff6fd;
+  color:#E7FCFF;
   padding:10px;
   min-height:100px;
   margin:10px 0;
@@ -102,4 +98,10 @@ div.footer ul {
 
 sup {
   font-size:10px;
+}
+
+.toolbit {
+  background:#ffffb7;
+  padding:5px;
+  position:absolute;
 }

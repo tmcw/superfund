@@ -46,7 +46,7 @@ $.domReady(function() {
         wax.mm.zoombox(map);
         wax.mm.zoomer(map).appendTo(map.parent);
         wax.mm.interaction(map, tj, {
-            animationOut: 'hide'
+            callbacks: new toolbit()
         });
     });
 
