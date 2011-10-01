@@ -2,15 +2,23 @@ var map;
 var mm = com.modestmaps;
 $.domReady(function() {
 
+    function googleDirections(a, b) {
+        return 'http://maps.google.com/maps?saddr={source}&daddr={dest}'
+            .replace('{source}', a.lat + ',' + a.lon)
+            .replace('{dest}', encodeURIComponent(b));
+    }
+
     function gridQuery(l) {
       utfgridquery('http://d.tiles.mapbox.com/tmcw/1.0.0/superfundvoronoi/layer.json', {
         lat: l.lat,
         lon: l.lon
         }, function(f) {
-            $('.your').html('<em>your superfund</em> <h2>' + f.FAC_NAME + ', <small>/' + f.LOC_CITY + ', ' + f.LOC_STATE + '</small></h3>');
+            $('.your-name').text(f.FAC_NAME);
+            $('.your-location').html(f.LOC_ADD + '<br />' + f.LOC_CITY + ', ' + f.LOC_STATE);
+            $('.your-directions').attr('href', googleDirections(l, f.LOC_ADD + ' ' + f.LOC_CITY + ' ' + f.LOC_STATE));
             easey.slow(map, {
                 location: new mm.Location(l.lat, l.lon),
-                zoom: 5,
+                zoom: 7,
                 time: 1000
             });
         });

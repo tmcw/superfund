@@ -2,7 +2,6 @@ body {
   font-size: 17px;
   line-height:25px;
   color:#222;
-  border-top:1px solid #000;
 }
 
 a {
@@ -15,12 +14,19 @@ a:hover {
 }
 
 .container {
-  width:700px;
   margin:0 auto;
 }
 
-h1 {
-  margin:10px 0 10px 0;
+.left {
+  width:400px;
+}
+
+.left p {
+  padding:0 10px;
+}
+
+.left h1 {
+  margin:10px 0 10px 10px;
   font-size:30px;
   padding:5px 5px 5px 0px;
   background:url('biohazard.png') no-repeat top right;
@@ -36,7 +42,7 @@ p {
 
 div.footer {
   font-size:13px;
-  border-top:1px solid #aaa;
+  border-top:1px dotted #aaa;
   margin-top:10px;
 }
 
@@ -45,22 +51,43 @@ div.footer ul {
 }
 
 #map {
-  height:350px;
-  border:1px solid #aaa;
-  background:#4AAFBD;
+  position:absolute;
+  right:0;
+  left:400px;
+  top:0;
+  bottom:0;
+  border-left:1px solid #222;
+  background:#2A2B2E;
 }
 
 .your {
   background:#444;
   color:#bff6fd;
   padding:10px;
+  min-height:100px;
+  margin:10px 0;
 }
 
-.your h2 {
+.your h3 {
   text-align:middle;
-  font-size:30px;
+  font-size:19px;
   font-weight:bold;
   font-family: 'Helvetica Neue';
+}
+
+.your .col-1 {
+  width:230px;
+}
+
+.your .col-2 {
+  float:right;
+  width:130px;
+}
+
+.col-2 a, address {
+  font-family:monospace;
+  font-size:14px;
+  line-height:15px;
 }
 
 .your small {

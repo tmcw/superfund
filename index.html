@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Your Superfund</title>
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
     <meta name='description'
       content='The Superfund site nearest you.' />
     <link
@@ -41,39 +42,40 @@
   </head>
   <body>
     <div class='container'>
-    <h1><span>Your Superfund</span></h1>
-    <p>These are some of the most polluted areas in America.
-    <a href='http://ds.io/nPl1Yg'>CERCLA</a><sup><a href='http://en.wikipedia.org/wiki/Superfund'>W</a></sup>
-    was enacted in 1980, in response to the <a href='' id='lovecanal'>Love Canal disaster</a><sup><a href='http://en.wikipedia.org/wiki/Love_Canal'>W</a></sup>, to clean up severely polluted sites.</p>
-    <div class='your'>
-    </div>
-    <div id='map'></div>
-    <p>There are currently <em>1,280</em> sites on the list, and since
-    1980, <em>347</em> have
-    been cleaned-up and deleted from the list.
-    The largest is Berkeley Pit in
-    <a id='butte' href=''>Butte, Montana.</a><sup><a href='http://en.wikipedia.org/wiki/Berkeley_Pit'>W</a></sup>
-    The program was originally funded by the <a href='http://ds.io/pFutnC'>polluter pays principle</a>,
-    but in 2004 became <a href='http://docs.google.com/viewer?url=http%3A%2F%2Fwww.gao.gov%2Fnew.items%2Fd04475r.pdf'>funded by general revenues</a>.</p>
+      <div id='map'></div>
+      <div class='left'>
+        <h1><span>Your Superfund</span></h1>
+        <p>These are some of the most polluted areas in America.
+        <a href='http://ds.io/nPl1Yg'>CERCLA</a><sup><a href='http://en.wikipedia.org/wiki/Superfund'>W</a></sup>
+        was enacted in 1980, in response to the <a href='' id='lovecanal'>Love Canal disaster</a><sup><a href='http://en.wikipedia.org/wiki/Love_Canal'>W</a></sup>, to clean up severely polluted sites.</p>
+        <div class='your'>
+          <div class='col-2'>
+            <address class='your-location'></address>
+            <a class='your-directions'>directions →</a>
+          </div>
+          <div class='col-1'>
+            <h3 class='your-name'></h2>
+          </div>
+        </div>
+        <p>There are currently <em>1,280</em> sites on the list, and since
+        1980, <em>347</em> have
+        been cleaned-up and deleted from the list.
+        The largest is Berkeley Pit in
+        <a id='butte' href=''>Butte, Montana.</a><sup><a href='http://en.wikipedia.org/wiki/Berkeley_Pit'>W</a></sup>
+        The program was originally funded by the <a href='http://ds.io/pFutnC'>polluter pays principle</a>,
+        but in 2004 became <a href='http://docs.google.com/viewer?url=http%3A%2F%2Fwww.gao.gov%2Fnew.items%2Fd04475r.pdf'>funded by general revenues</a>.</p>
 
-      <div class='footer'>
-        <ul>
-          <li>
-          <a href='http://macwright.org/2011/10/30/voronoi-polygons.html'>Read more about this map in its blog post</a>. Maps rendered with <a href='http://mapbox.com/tilemill'>TileMill</a> and served by
-            <a href='http://mapbox.com/hosting'>MapBox Hosting</a>
-          </li>
-          <li>
+          <div class='footer'>
+            <p>
+            <a href='http://macwright.org/2011/10/30/voronoi-polygons.html'>Read more about this map in its blog post</a>. Maps rendered with <a href='http://mapbox.com/tilemill'>TileMill</a> and served by
+            <a href='http://mapbox.com/hosting'>MapBox Hosting</a>.
             Superfund sites downloaded from the excellent but difficult to track down
-            <a href='http://www.epa.gov/enviro/geo_data.html'>EPA Geospatial Data Access Project</a>
-          </li>
-          <li>
-          See also: <a href='http://www.epa.gov/superfund/'>EPA's Superfund site</a>, the <a href='http://topics.nytimes.com/topics/reference/timestopics/subjects/s/superfund/index.html'>NYT Superfund topic</a>, and <a href='http://www.epa.gov/superfund/sites/'>the official map</a>
-          </li>
-          <li>
+            <a href='http://www.epa.gov/enviro/geo_data.html'>EPA Geospatial Data Access Project</a>.
+            See also: <a href='http://www.epa.gov/superfund/'>EPA's Superfund site</a>, the <a href='http://topics.nytimes.com/topics/reference/timestopics/subjects/s/superfund/index.html'>NYT Superfund topic</a>, and <a href='http://www.epa.gov/superfund/sites/'>the official map</a>.
             <a href='https://github.com/tmcw/superfund'>This site is open source - BSD.</a>
-          </li>
-        </ul>
-      </div>
+            </p>
+          </div>
+        </div>
     </div>
     <script type="text/javascript">
     var _gauges = _gauges || [];

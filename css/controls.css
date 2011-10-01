@@ -9,7 +9,7 @@ a.wax-fullscreen {
 a.zoomer {
   text-decoration:none;
   position:absolute;
-  background-color:#86c9d3;
+  background-color:#fff;
   color:#333;
   line-height:30px;
   font-size:27px;
@@ -17,7 +17,7 @@ a.zoomer {
   text-align:center;
   width:30px;
   height:30px;
-  bottom:0;
+  top:0;
   }
 
 a.zoomer:hover {
