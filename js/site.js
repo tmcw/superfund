@@ -36,6 +36,7 @@ $.domReady(function() {
             ]);
         map.setCenterZoom(new mm.Location(38, -96), 4);
         wax.mm.zoombox(map);
+        wax.mm.zoomer(map).appendTo(map.parent);
         wax.mm.interaction(map, tj, {
             animationOut: 'hide'
         });

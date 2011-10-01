@@ -9,22 +9,27 @@ a.wax-fullscreen {
 a.zoomer {
   text-decoration:none;
   position:absolute;
-  background-color:#444;
-  color:#fff;
-  line-height:25px;
-  font-size:20px;
+  background-color:#86c9d3;
+  color:#333;
+  line-height:30px;
+  font-size:27px;
   z-index:99999;
   text-align:center;
-  width:25px;
-  height:25px;
+  width:30px;
+  height:30px;
+  bottom:0;
   }
 
+a.zoomer:hover {
+  background:#94d0cc;
+}
+
   a.zoomin {
-    left:5px;
+    right:30px;
     }
 
   a.zoomout {
-    left:35px;
+    right:0px;
     }
 
   a.zoomdisabled {
