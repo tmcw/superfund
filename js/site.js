@@ -1,6 +1,8 @@
 var map;
 var mm = com.modestmaps;
+
 $.domReady(function() {
+    var drawertemplate = _.template($('#drawer-template').html());
 
     function googleDirections(a, b) {
         return 'http://maps.google.com/maps?saddr={source}&daddr={dest}'
@@ -21,8 +23,23 @@ $.domReady(function() {
                 zoom: 7,
                 time: 1000
             });
+
         });
     }
+
+    window.loadSite = function(siteid) {
+        reqwest({
+            url: 'sites/' + siteid + '.json',
+            type: 'json',
+            success: function(d) {
+                $('.drawer').html(drawertemplate({
+                    sites: d
+                }));
+            }
+        });
+    };
+
+    window.loadSite('CTD072122062');
 
     if (navigator && navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(res) {

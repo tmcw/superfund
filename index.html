@@ -17,7 +17,9 @@
       href='css/controls.css'
       type='text/css' rel='stylesheet' />
 
-
+    <script
+      src='js/underscore-min.js'
+      type='text/javascript'></script>
     <script
       src='js/ender.js'
       type='text/javascript'></script>
@@ -45,6 +47,7 @@
   </head>
   <body>
     <div class='container'>
+      <div class='drawer'></div>
       <div id='map'></div>
       <div class='left'>
         <h1><span>Your Superfund</span></h1>
@@ -60,6 +63,7 @@
             <h3 class='your-name'></h2>
           </div>
         </div>
+
         <p>There are currently <em>1,280</em> sites on the list, and since
         1980, <em>347</em> have
         been cleaned-up and deleted from the list.
@@ -95,6 +99,44 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(t, s);
     })();
+  </script>
+  <script type='text/template' id='drawer-template'>
+    <table class='site-table'>
+      <tr>
+        <th>name</th>
+        <td><%= sites[0].site_name %></td>
+      </tr>
+      <tr>
+        <th>type</th>
+        <td><%= sites[0].rsitinc_desc %></td>
+      </tr>
+      <tr>
+        <th>operable unit<a href='http://www.epa.gov/enviro/html/cerclis/cer_operable_unit/ou_name.html'>*</a></th>
+        <td><%= sites[0].ou_name %></td>
+      </tr>
+    <table class='site-table'>
+      <thead>
+        <tr>
+          <th>date</th>
+          <th>action</th>
+          <th>lead</th>
+        </tr>
+      </thead>
+      <% for(var i = 0; i < sites.length; i++) { %>
+        <tr
+          class='<%= sites[i].rnpl_status_desc.match(/Deleted/) ? 'deleted' : 'current' %>>
+          <td>
+            <%= sites[i].act_actl_strt_date %>
+          </td>
+          <td>
+            <%= sites[i].rat_name %>
+          </td>
+          <td>
+            <%= sites[i].ralt_desc %>
+          </td>
+        </tr>
+      <% } %>
+    </table>
   </script>
   </body>
 </html>

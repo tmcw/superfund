@@ -61,7 +61,7 @@ div.footer ul {
   color:#E7FCFF;
   padding:10px;
   min-height:100px;
-  margin:10px 0;
+  margin:0 0 10px 0;
 }
 
 .your h3 {
@@ -104,4 +104,40 @@ sup {
   background:#ffffb7;
   padding:5px;
   position:absolute;
+}
+
+.drawer {
+  background:#fff;
+  z-index:900;
+  position:absolute;
+  left:401px;
+  max-height:30%;
+  overflow:auto;
+  bottom:0;
+  right:0;
+}
+
+.site-table {
+  width:100%;
+  font:13px/14px monospace;
+}
+
+.site-table td, .site-table th {
+  padding:2px;
+}
+
+.site-table thead {
+  background:#ffff97;
+}
+
+.site-table thead th {
+  border-bottom:1px dotted #444;
+}
+
+.site-table tr td {
+  border-bottom:1px dotted #444;
+}
+
+.site-table .deleted {
+  background:#ff989a;
 }

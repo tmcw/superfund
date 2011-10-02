@@ -53,34 +53,6 @@ toolbit.prototype.click = function(feature, context) {
         this.hideTooltip(this._currentTooltip);
         this._currentTooltip = undefined;
     }
-
-    var tooltip = this.getTooltip(feature, context);
-    tooltip.className += ' wax-popup';
-    tooltip.innerHTML = feature;
-
-    var close = document.createElement('a');
-    close.href = '#close';
-    close.className = 'close';
-    close.innerHTML = 'Close';
-    tooltip.appendChild(close);
-
-    var closeClick = wax.util.bind(function(ev) {
-        this.hideTooltip(tooltip);
-        this._currentTooltip = undefined;
-        ev.returnValue = false; // Prevents hash change.
-        if (ev.stopPropagation) ev.stopPropagation();
-        if (ev.preventDefault) ev.preventDefault();
-        return false;
-    }, this);
-
-    // IE compatibility.
-    if (close.addEventListener) {
-        close.addEventListener('click', closeClick, false);
-    } else if (close.attachEvent) {
-        close.attachEvent('onclick', closeClick);
-    }
-
-    this._currentTooltip = tooltip;
 };
 
 // Show a tooltip.
