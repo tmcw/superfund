@@ -18,6 +18,7 @@ $.domReady(function() {
             $('.your-name').text(f.FAC_NAME);
             $('.your-location').html(f.LOC_ADD + '<br />' + f.LOC_CITY + ', ' + f.LOC_STATE);
             $('.your-directions').attr('href', googleDirections(l, f.LOC_ADD + ' ' + f.LOC_CITY + ' ' + f.LOC_STATE));
+            window.loadSite(f.LOC_STATE + f.REG_ID);
             easey.slow(map, {
                 location: new mm.Location(l.lat, l.lon),
                 zoom: 7,
@@ -39,18 +40,16 @@ $.domReady(function() {
         });
     };
 
-    window.loadSite('CTD072122062');
+    // if (navigator && navigator.geolocation) {
+    //     navigator.geolocation.getCurrentPosition(function(res) {
+    //       gridQuery({
+    //         lat: res.coords.latitude,
+    //         lon: res.coords.longitude
+    //       });
+    //     });
+    // }
 
-    if (navigator && navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(res) {
-          gridQuery({
-            lat: res.coords.latitude,
-            lon: res.coords.longitude
-          });
-        });
-    }
-
-    wax.tilejson('http://a.tiles.mapbox.com/tmcw/1.0.0/tmcw.superfund_1af9ac,mapbox.world-glass/layer.json', function(tj) {
+    wax.tilejson('http://a.tiles.mapbox.com/tmcw/1.0.0/tmcw.superfund_8550eb,mapbox.world-glass/layer.json', function(tj) {
         map = new mm.Map('map',
             new wax.mm.connector(tj),
             null, [
@@ -63,7 +62,10 @@ $.domReady(function() {
         wax.mm.zoombox(map);
         wax.mm.zoomer(map).appendTo(map.parent);
         wax.mm.interaction(map, tj, {
-            callbacks: new toolbit()
+            callbacks: new toolbit(),
+            clickHandler: function(id) {
+                window.loadSite(id);
+            }
         });
     });
 
@@ -87,5 +89,18 @@ $.domReady(function() {
                 -78.93251611607292
             )
         });
+    });
+
+    $('#toggle-mapquest').click(function(e) {
+      e.preventDefault();
+      wax.tilejson('http://a.tiles.mapbox.com/tmcw/1.0.0/externals.streetlevel,tmcw.superfund_8550eb/layer.json', function(tj) {
+        map.setProvider(new wax.mm.connector(tj));
+      });
+    });
+    $('#toggle-mapbox').click(function(e) {
+      e.preventDefault();
+      wax.tilejson('http://a.tiles.mapbox.com/tmcw/1.0.0/tmcw.superfund_8550eb,mapbox.world-glass/layer.json', function(tj) {
+        map.setProvider(new wax.mm.connector(tj));
+      });
     });
 });

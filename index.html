@@ -17,6 +17,7 @@
       href='css/controls.css'
       type='text/css' rel='stylesheet' />
 
+    <!-- 
     <script
       src='js/underscore-min.js'
       type='text/javascript'></script>
@@ -44,25 +45,25 @@
     <script
       src='js/site.js'
       type='text/javascript'></script>
+    -->
+    <script
+      src='site.min.js'
+      type='text/javascript'></script>
   </head>
   <body>
     <div class='container'>
       <div class='drawer'></div>
+      <div class='toggle'>
+        <a href='#' id='toggle-mapbox'>MapBox</a>
+        <a href='#' id='toggle-mapquest'>MapQuest Street-Level</a>
+      </div>
       <div id='map'></div>
       <div class='left'>
         <h1><span>Your Superfund</span></h1>
         <p>These are some of the most polluted areas in America.
         <a href='http://ds.io/nPl1Yg'>CERCLA</a><sup><a href='http://en.wikipedia.org/wiki/Superfund'>W</a></sup>
         was enacted in 1980, in response to the <a href='' id='lovecanal'>Love Canal disaster</a><sup><a href='http://en.wikipedia.org/wiki/Love_Canal'>W</a></sup>, to clean up severely polluted sites.</p>
-        <div class='your'>
-          <div class='col-2'>
-            <address class='your-location'></address>
-            <a class='your-directions'>directions →</a>
-          </div>
-          <div class='col-1'>
-            <h3 class='your-name'></h2>
-          </div>
-        </div>
+
 
         <p>There are currently <em>1,280</em> sites on the list, and since
         1980, <em>347</em> have
@@ -71,6 +72,8 @@
         <a id='butte' href=''>Butte, Montana.</a><sup><a href='http://en.wikipedia.org/wiki/Berkeley_Pit'>W</a></sup>
         The program was originally funded by the <a href='http://ds.io/pFutnC'>polluter pays principle</a>,
         but in 2004 became <a href='http://docs.google.com/viewer?url=http%3A%2F%2Fwww.gao.gov%2Fnew.items%2Fd04475r.pdf'>funded by general revenues</a>.</p>
+
+        <p><a href='http://turbulence.org/Works/superfund/index.php'>Superfund 365</a> visited a superfund a day, from New York to Hawaii, for a year.</p>
 
           <div class='footer'>
             <p>
@@ -84,6 +87,7 @@
             and <a href='http://www.epa.gov/superfund/sites/'>the official map</a>.
             <a href='https://github.com/tmcw/superfund'>This site is open source - BSD.</a>
             </p>
+            <br />
           </div>
         </div>
     </div>
@@ -101,19 +105,37 @@
     })();
   </script>
   <script type='text/template' id='drawer-template'>
-    <table class='site-table'>
+    <table>
       <tr>
-        <th>name</th>
-        <td><%= sites[0].site_name %></td>
-      </tr>
-      <tr>
-        <th>type</th>
-        <td><%= sites[0].rsitinc_desc %></td>
-      </tr>
-      <tr>
-        <th>operable unit<a href='http://www.epa.gov/enviro/html/cerclis/cer_operable_unit/ou_name.html'>*</a></th>
-        <td><%= sites[0].ou_name %></td>
-      </tr>
+        <td>
+          <div class='highlighted'>
+            <h3 class='your-name'><%= sites[0].site_name %></h3>
+            <address class='your-location'></address>
+            <!-- <a class='your-directions'>directions →</a><br /> -->
+          </div>
+        </td>
+        <td>
+          <table class='site-meta'>
+            <tr>
+              <th>type</th><td><%= sites[0].rsitinc_desc %></td>
+            </tr><tr>
+            <th>epa id</th>
+            <td>
+              <a href='http://iaspub.epa.gov/enviro/efsystemquery.rcrainfo?fac_search=handler_id&fac_value=<%= sites[0].site_epa_id %>&fac_search_type=Equal+To&postal_code=&location_address=&add_search_type=Beginning+With&city_name=&county_name=&state_code=&naics_type=Equal+to&naics_to=&univ_search=0&univA=FULL_ENFORCEMENT&univB=LQG&LIBS=&proc_group=0&procname=&program_search=2&report=1&page_no=1&output_sql_switch=TRUE&database_type=RCRAINFO'><%= sites[0].site_epa_id %></a>, 
+              <a href='sites/<%= sites[0].site_epa_id %>.json'>[json]</a>
+            </td>
+            </tr><tr>
+              <th>area<a href='http://www.epa.gov/enviro/html/cerclis/cer_operable_unit/ou_name.html'>*</a></th>
+              <td><%= sites[0].ou_name %></td>
+            </tr><tr>
+              <th>id</th><td><%= sites[0].site_id %></td>
+            </tr><tr>
+              <th>project manager</th><td><%= sites[0].rpm %></td>
+            </tr>
+          </table>
+      </td>
+    </tr>
+    </table>
     <table class='site-table'>
       <thead>
         <tr>
@@ -126,7 +148,7 @@
         <tr
           class='<%= sites[i].rnpl_status_desc.match(/Deleted/) ? 'deleted' : 'current' %>>
           <td>
-            <%= sites[i].act_actl_strt_date %>
+            <%= (sites[i].act_actl_strt_date || '').replace('00:00:00', '') %>
           </td>
           <td>
             <%= sites[i].rat_name %>

@@ -11,25 +11,28 @@ a.zoomer {
   position:absolute;
   background-color:#fff;
   color:#333;
-  line-height:30px;
-  font-size:27px;
+  line-height:26px;
+  font-size:25px;
   z-index:99999;
   text-align:center;
   width:30px;
   height:30px;
-  top:0;
+  top:10px;
+  border:1px solid #747476;
+  border-radius:3px;
   }
 
 a.zoomer:hover {
-  background:#94d0cc;
+  background:#2a2b2e;
+  color:#fff;
 }
 
   a.zoomin {
-    right:30px;
+    right:50px;
     }
 
   a.zoomout {
-    right:0px;
+    right:10px;
     }
 
   a.zoomdisabled {

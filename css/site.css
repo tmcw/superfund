@@ -56,40 +56,25 @@ div.footer ul {
   background:#2A2B2E;
 }
 
-.your {
+.highlighted {
   background:#444;
   color:#E7FCFF;
   padding:10px;
-  min-height:100px;
-  margin:0 0 10px 0;
+  width:300px;
+  height:100%;
 }
 
-.your h3 {
+.highlighted h3 {
   text-align:middle;
   font-size:19px;
   font-weight:bold;
   font-family: 'Helvetica Neue';
 }
 
-.your .col-1 {
-  width:230px;
-}
-
-.your .col-2 {
-  float:right;
-  width:130px;
-}
-
-.col-2 a, address {
+address {
   font-family:monospace;
   font-size:14px;
   line-height:15px;
-}
-
-.your small {
-  font-size:20px;
-  color:#ebfdff;
-  font-style:italic;
 }
 
 .wax-tooltip a {
@@ -106,12 +91,22 @@ sup {
   position:absolute;
 }
 
+.banner {
+  background:#fff;
+  z-index:900;
+  position:absolute;
+  left:401px;
+  overflow:auto;
+  top:0;
+  right:0;
+}
+
 .drawer {
   background:#fff;
   z-index:900;
   position:absolute;
   left:401px;
-  max-height:30%;
+  max-height:40%;
   overflow:auto;
   bottom:0;
   right:0;
@@ -140,4 +135,36 @@ sup {
 
 .site-table .deleted {
   background:#ff989a;
+}
+
+.site-meta {
+  font:12px/15px monospace;
+}
+
+.site-meta tr td, .site-meta tr th {
+  border-bottom:1px solid #444;
+  padding:2px 5px;
+}
+
+.site-meta th {
+  background:#ffff9c;
+}
+
+.toggle {
+  display:block;
+  position:absolute;
+  background:#fff;
+  right:90px;
+  top:10px;
+  border:1px solid #747476;
+  z-index:555;
+  font-size:14px;
+  border-radius:3px;
+}
+
+.toggle a {
+  display:block;
+  background:transparent;
+  padding:2px 10px;
+  float:left;
 }

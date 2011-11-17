@@ -36,16 +36,16 @@ csv()
     objects.push(data);
     return data;
 })
-.on('error', function() {
-    console.log('... error ...');
-})
+// .on('error', function() {
+//     console.log('... error ...');
+// })
 .on('end', function() {
     var groups = _.groupBy(objects, function(o) {
         return o.site_epa_id;
     });
     for (var site_epa_id in groups) {
         if (!site_epa_id) continue;
-        fs.writeFileSync('sites/' + site_epa_id + '.json', JSON.stringify(groups[site_epa_id]), 'utf8');
+        fs.writeFileSync('sites/' + site_epa_id + '.json', JSON.stringify(_(groups[site_epa_id]).sortBy(function(g) { return g.ou_sort_id; })), 'utf8');
     }
 });
 
