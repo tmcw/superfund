@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Superfund: datajournal</title>
+    <style type='text/css'>
+      body {
+        font: 14px/20px "Helvetica Neue", sans-serif;
+        width:400px;
+        margin:20px auto;
+      }
+
+      h1 {
+        font-size:18px;
+      }
+
+      code {
+        font: 14px/20px "Droid Monospace", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Your Superfund: Data Journal</h1>
+    <p><a href='/superfund/'>Your Superfund</a> uses EPA data
+      for a country-wide map of superfund sites. Mostly it was
+      a great experience using data! The EPA is doing a fine job
+      of open data. Here are a few quick notes.</p>
+
+      <p>The main open/fast data format that's offered is <strong>Shapefiles</strong>.
+      Which are great as far as being accessible from lots of software,
+      but they're very inefficient with this type of data - the <code>dbf</code>
+      is 1.3GB, because shapefile fields don't compress with small data.
+      Though it's kind of obscure, an SQLite or Spatialite version would
+      be more efficient.</p>
+
+      <p>It would be awesome if the Geospatial Data Access Project
+      page had more links, like <a href='http://www.epa.gov/superfund/'>to the
+        main Superfund site</a>. They're rather hard to discover from each
+      other, and the main site has its own data downloads which are useful.</p>
+
+      <p>There are quite a few different search services -
+      <a href='http://ds.io/u5pm0d'>a regional one</a>, the
+      <a href='http://www.epa.gov/superfund/sites/query/queryhtm/nplfin.htm'>National Priorities List</a>,
+      and, of course, the site search. There's probably plenty of reason that they're
+      all necessary, but having them have different interfaces with not enough
+      context of what you're searching makes the user experience a little
+      daunting.</p>
+
+      <p>The datasource I found for basically narratives of actions on each site
+      includes an EPA ID and a site ID, but has nothing about a CERCID. The differences
+      between the two, and some kind of concordance between EPA IDs and CERC IDs
+      would be vital for linking the datasets. (still trying to dig up
+      where exactly I found that source - I should have recorded that in the first place)</p>
+
+    </body>
+  </html>
